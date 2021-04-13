@@ -1,0 +1,135 @@
+:root {
+  --level-one: translateZ(3rem);
+  --level-two: translateZ(6rem);
+  --level-three: translateZ(9rem);
+
+  --fw-normal: 400;
+  --fw-bold: 700;
+
+  --clr: #b7c9e5;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  font-family: 'Martel', serif;
+  background-image: linear-gradient(
+    to top,
+    #f3e7e9 0%,
+    #e3eeff 99%,
+    #e3eeff 100%
+  );
+}
+
+.card {
+  width: 400px;
+  justify-content: center;
+  margin-right: 11rem;
+  align-items: center;
+}
+
+.card__content {
+  text-align: center;
+  position: relative;
+  padding: 23em 18em;
+  transition: transform 3s;
+  background: rgb(27, 27, 27);
+  transform-style: preserve-3d;
+  justify-content: center;
+  align-items: center;
+}
+
+.card:hover .card__content {
+  transform: rotateY(0.5turn);
+}
+
+.card__front,
+.card__back {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 5em 3em;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  display: grid;
+  align-content: center;
+  align-items: center;
+}
+
+.card__front {
+  background-color: transparent;
+  background-image: url(rekreation\ logo.png);
+  background-position: center;
+  justify-content: center;
+  background-size: cover;
+  background-blend-mode: overlay;
+  color: rgb(39, 38, 38);
+  align-items: center;
+  text-align: center;
+}
+
+.card__front::before {
+  content: 'Rekreation Art';
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  text-align: center;
+  font-size: 1.5rem;
+  position: absolute;
+  --spacer: 1em;
+  top: var(--spacer);
+  bottom: var(--spacer);
+  left: var(--spacer);
+  right: var(--spacer);
+  /* border: 3px solid currentColor; */
+  transform: var(--level-one);
+}
+
+.card__title {
+  font-size: 3.5rem;
+  transform: var(--level-three);
+  order: 2;
+  text-transform: uppercase;
+  font-family: 'Martel', serif;
+  text-align: center;
+}
+
+.card__subtitle {
+  transform: var(--level-two);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 1rem;
+  font-weight: var(--fw-bold);
+  opacity: 0.7;
+  text-align: center;
+  color: #13547a;
+  margin-top: 40rem;
+}
+
+.card__body {
+  transform: var(--level-two);
+  font-weight: var(fw-normal);
+  font-size: 1.5rem;
+  font-family: 'Martel', serif;
+  color: antiquewhite;
+  line-height: 1.6;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.card__back {
+  transform: rotateY(0.5turn);
+  color: var(--clr);
+  background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+}
